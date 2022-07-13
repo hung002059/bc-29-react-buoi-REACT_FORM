@@ -1,12 +1,14 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
-export default class RegisterForm extends Component {
+class RegisterForm extends Component {
   state = {
     user: { id: "", fullName: "", phone: "", email: "" },
   };
 
   handleChange(event) {
     const { name, value } = event.target;
+    console.log(name, value, this.state.seletecdUser);
     this.setState({
       user: {
         ...this.state.user,
@@ -69,3 +71,5 @@ export default class RegisterForm extends Component {
     );
   }
 }
+
+export default connect()(RegisterForm);
